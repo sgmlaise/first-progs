@@ -1,0 +1,44 @@
+
+.grid {
+  display: grid;
+  grid-template-rows: repeat(8, 40px);
+  grid-template-columns: repeat(9, 70px);
+  gap: 1px;
+}
+.row {
+  display: contents;
+}
+.cell {
+  width: 70px;
+  height: 30px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  border: 2px gray outset ;
+  
+}
+
+.extendedCell {
+    width: 140px;
+    height: 30px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    border: 2px gray outset ;
+    
+  }
+start {
+    background-color: green;
+  }
+  
+  .end {
+    background-color: red;
+  }
+  .highlight {
+    background-color: yellow;
+    font-weight: bold;
+  }

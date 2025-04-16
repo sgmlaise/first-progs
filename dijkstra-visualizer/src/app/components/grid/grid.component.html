@@ -1,0 +1,34 @@
+<h2>City Distance Visualizer</h2>
+<div class="grid">
+   <div class="row">
+    <div class="cell" >&nbsp;</div>
+    <!-- [ngClass]="{'highlight': shortestPath.includes(city.name)}"-->
+    <div *ngFor="let cell of cities; let k = index" 
+    
+    class="cell" [ngClass]="{'start': k === 0 , 'end': k === 7, 'highlight': shortestPath.includes(cell .name) }">
+           {{ cell.name }}
+    </div>
+    <div *ngFor="let row of grid; let i = index" class="row">
+      <div class="cell" >{{cities[i].name}}</div>
+      <div *ngFor="let cell of row; let j = index" 
+  class="cell" [ngClass]="{'start': i === 0 && j === 0, 'end': i === rows - 1 
+  && j === cols - 1}">
+         {{ cell }}
+      </div>
+    </div>
+</div>
+    <select (change)="getStartId($event)"> 
+        <option *ngFor="let city of cities; let i = index" [value]="city.id" >
+            {{city.name}}
+        </option>
+      </select>
+      <select (change)="getEndId($event)"> 
+        <option *ngFor="let city of cities; let i = index" [value]="city.id" >
+            {{city.name}}
+        </option>
+      </select></div>
+  
+  {{ShortestPath}}
+
+  <button (click)="visualizeDijkstra()">Visualize Dijkstra</button>
+ 
