@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CityDataService } from '../../services/city-data.service';
+import { TrafficModelService } from '../../services/traffic-model.service';
 
 @Component({
   selector: 'app-grid',
