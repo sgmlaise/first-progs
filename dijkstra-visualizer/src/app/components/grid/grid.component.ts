@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CityDataService } from '../../services/city-data.service';
 import { TrafficModelService } from '../../services/traffic-model.service';
 import { AiTripWeightServiceService } from '../../services/ai-trip.weight.service.service';
+import { EdgeWeight } from '../../../assets/edge-weight.model';
 
 @Component({
   selector: 'app-grid',
@@ -11,13 +12,15 @@ import { AiTripWeightServiceService } from '../../services/ai-trip.weight.servic
 export class GridComponent {
   
     grid: number[][] = [];
+    weightedGrid: EdgeWeight[][] = [];
     rows: number = 8;
     cols: number = 8;
    
    shortestPath:any = [] ;
     cities: any[] = [];
-  distances: number[][] = [];
-  selectedStart = '0';
+    distances: number[][] = [];
+    weightedDistances: EdgeWeight[][] = [];
+    selectedStart = '0';
   startCityIndex = 0;
   endCityIndex = 5;
   getStartId(event:any) {
@@ -35,6 +38,7 @@ export class GridComponent {
   timeOfDay = 'morning';
     constructor(private aiWeightService: AiTripWeightServiceService, private cityDataService: CityDataService) {
       this.initializeGrid();
+      this.initializeWeightetGrid();
     }
     initializeGrid(): void {
       this.cityDataService.getCityData().subscribe(data => {
@@ -49,6 +53,27 @@ export class GridComponent {
         );
   
         this.grid = this.adjustedDistances.map(row => [...row]); 
+      });
+      // create grid copy
+
+   //   this.grid = Array.from({ length: this.rows }, () => Array(this.cols).fill(1));
+      
+
+    }
+    initializeWeightetGrid(): void {
+      this.cityDataService.getWeighterCityData().subscribe(data => {
+        this.cities = data.cities;
+        this.weightedDistances = data.distances;
+        this.weightedGrid =  Array.from(this.weightedDistances,row => Array.from(row));
+         /* later this.adjustedDistances = this.aiWeightService.adjustDistances(
+          this.distances,
+          this.weather,
+          this.accidentSeverity,
+          this.timeOfDay,this.cities.map(c => c.name)
+        );
+  
+        this.weightedGrid = this.adjustedDistances.map(row => [...row]); 
+        */
       });
       // create grid copy
 

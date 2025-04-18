@@ -1,0 +1,92 @@
+
+ 
+  
+  {
+    "cities": [
+      { "id": 0, "name": "Reno" },
+      { "id": 1, "name": "Sparks" },
+      { "id": 2, "name": "Carson City" },
+      { "id": 3, "name": "Incline Village" },
+      { "id": 4, "name": "Truckee" },
+      { "id": 5, "name": "South Lake Tahoe" },
+      { "id": 6, "name": "Kings Beach" },
+      { "id": 7, "name": "Stateline" }
+    ],
+    "distances": [
+      [ 
+        {"timeSpeedFactor": 0,   "baseDistance": 0,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 5,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":30,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":28,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":  33,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance":  60,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 36,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":58,  "weather": "DONE", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false }  
+    ], [ 
+        {"timeSpeedFactor": 0,   "baseDistance": 5,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 0,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":28,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":26, "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":  31,     "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 58,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":34,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 56,  "weather": "DONE", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false }  
+    ], [ 
+        {"timeSpeedFactor": 0,   "baseDistance": 30, "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 28, "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":0,       "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":20, "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 43, "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 25,"weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 22, "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":14, "weather": "DONE", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false }  
+    ], [ 
+        {"timeSpeedFactor": 0,   "baseDistance": 28,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 26,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":20,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 0,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 26,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 34,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":15,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 30,  "weather": "DONE", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false }  
+    ], [ 
+        {"timeSpeedFactor": 0,   "baseDistance": 33,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 31,     "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":43,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":26, "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":  0,     "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance":45,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":28,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":50,  "weather": "DONE", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false }  
+    ], [ 
+        {"timeSpeedFactor": 0,   "baseDistance": 60,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 58,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":25,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":34,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 45,     "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 0,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":22,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 3,  "weather": "DONE", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false }  
+    ], [ 
+        {"timeSpeedFactor": 0,   "baseDistance": 36,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 34,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":22,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":15,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":  28,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance":  22,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 0,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":   20,  "weather": "DONE", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false }  
+    ], [ 
+        {"timeSpeedFactor": 0,   "baseDistance": 58,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 56,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":14,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 30,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 50,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 3,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":20,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 0 ,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false }  
+    ]
+      
+    ]
+  }
+   
