@@ -45,7 +45,7 @@
        <div *ngFor="let cell of row; let j = index" 
    class="cell" [ngClass]="{'start': i === 0 && j === 0, 'end': i === rows - 1 
    && j === cols - 1}">
-          {{ cell.baseDistance }}
+          {{ cell.timeSpeedFactor }}
        </div>
      </div>
  </div>

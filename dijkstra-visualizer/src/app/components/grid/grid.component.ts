@@ -33,6 +33,7 @@ export class GridComponent {
  //   alert(selectedValue);
   }
   adjustedDistances: number[][] = [];
+  adjustedWeightedDistances: EdgeWeight[][] = [];
   weather = 'snow';
   accidentSeverity = 3;
   timeOfDay = 'morning';
@@ -65,15 +66,15 @@ export class GridComponent {
         this.cities = data.cities;
         this.weightedDistances = data.distances;
         this.weightedGrid =  Array.from(this.weightedDistances,row => Array.from(row));
-         /* later this.adjustedDistances = this.aiWeightService.adjustDistances(
-          this.distances,
+        this.adjustedWeightedDistances = this.aiWeightService.adjustWeightedDistances(
+          this.weightedDistances,
           this.weather,
           this.accidentSeverity,
           this.timeOfDay,this.cities.map(c => c.name)
         );
   
-        this.weightedGrid = this.adjustedDistances.map(row => [...row]); 
-        */
+        this.weightedGrid = this.adjustedWeightedDistances.map(row => [...row]); 
+      
       });
       // create grid copy
 

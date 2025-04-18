@@ -14,14 +14,14 @@
     ],
     "distances": [
       [ 
-        {"timeSpeedFactor": 0,   "baseDistance": 0,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
-        {"timeSpeedFactor": 0,   "baseDistance": 5,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance": 0,   "weather": "snow", "timeOfDay": "mormng",  "accidentFactor":2,  "affected": false } , 
+        {"timeSpeedFactor": 0,   "baseDistance": 5,   "weather": "snow", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
         {"timeSpeedFactor": 0,   "baseDistance":30,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
         {"timeSpeedFactor": 0,   "baseDistance":28,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
         {"timeSpeedFactor": 0,   "baseDistance":  33,   "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
-        {"timeSpeedFactor": 0,   "baseDistance":  60,  "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
+        {"timeSpeedFactor": 0,   "baseDistance":  60,  "weather": "snow", "timeOfDay": "evening",  "accidentFactor": 80,  "affected": false } ,
         {"timeSpeedFactor": 0,   "baseDistance": 36,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,
-        {"timeSpeedFactor": 0,   "baseDistance":58,  "weather": "DONE", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false }  
+        {"timeSpeedFactor": 0,   "baseDistance":58,  "weather": "snow", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false }  
     ], [ 
         {"timeSpeedFactor": 0,   "baseDistance": 5,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } , 
         {"timeSpeedFactor": 0,   "baseDistance": 0,    "weather": "clear", "timeOfDay": "mormng",  "accidentFactor": 0,  "affected": false } ,

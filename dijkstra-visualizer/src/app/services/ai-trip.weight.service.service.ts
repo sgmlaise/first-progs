@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+import { EdgeWeight } from '../../assets/edge-weight.model';
 import * as tf from '@tensorflow/tfjs';
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,34 @@ export class AiTripWeightServiceService {
     */
   }
 
+  adjustWeightedDistances(distances: EdgeWeight[][], weather: string, accidentSeverity: number, timeOfDay: string,
+    cityNames: string[]): EdgeWeight[][] {
+      this.cityNames = cityNames;
+
+    const weatherFactor = this.getWeatherMultiplier(weather);
+    const timeFactor = this.getTimeMultiplier(timeOfDay);
+    const accidentFactor = 1 + accidentSeverity * 0.05;
+    return distances.map((row, i) =>
+      row.map((edge, j) => {
+        const isAffected = this.isRouteAffected(i, j);
+        const newTimeSpeedFactor = isAffected
+        ? Math.round(edge.baseDistance * weatherFactor * timeFactor * accidentFactor * 100) / 100
+        : edge.baseDistance;
+        return {
+          ...edge,
+          timeSpeedFactor: newTimeSpeedFactor,
+          weather: isAffected ? weather : undefined,
+          timeOfDay: isAffected ? timeOfDay : undefined,
+          accidentFactor: isAffected ? accidentSeverity : undefined,
+          affected: isAffected
+        };
+      })
+    );
+    /* old return distances.map(row =>
+      row.map(d => d * weatherFactor * accidentFactor * timeFactor)
+    );
+    */
+  }
   private getWeatherMultiplier(weather: string): number {
     switch (weather.toLowerCase()) {
       case 'snow': return 1.5;
