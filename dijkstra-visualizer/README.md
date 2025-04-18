@@ -28,4 +28,28 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ### DEVELOPER NOTES - Shantanu Gadkari
 ##### Tensorflowjs compatiblity issues - added line 
     "skipLibCheck": true in compilerOptions of tsconfig.json
-    
+    - for tensorflow and budget issues
+Warning: /Users/shantanu/Documents/GitHub/first-progs/dijkstra-visualizer/node_modules/@tensorflow/tfjs-core/dist/hash_util.js depends on 'long'. CommonJS or AMD dependencies can cause optimization bailouts.
+angular.json
+    "architect": {
+  "build": {
+    "options": {
+      "allowedCommonJsDependencies": [
+        "long", "@tensorflow/tfjs-core"
+      ]
+    }
+  }
+}
+- bundle initial exceeded maximum budget. Budget 1.00 MB was not met by 152.66 kB 
+angular.json
+"configurations": {
+  "production": {
+    "budgets": [
+      {
+        "type": "initial",
+        "maximumWarning": "1.5mb",
+        "maximumError": "2mb"
+      }
+    ]
+  }
+}

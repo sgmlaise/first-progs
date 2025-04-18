@@ -16,6 +16,9 @@
             "outputPath": "dist/dijkstra-visualizer",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "allowedCommonJsDependencies": [
+        "long", "@tensorflow/tfjs-core"
+      ],
             "polyfills": [
               "zone.js"
             ],
@@ -34,8 +37,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
