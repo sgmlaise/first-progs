@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CityDataService } from '../../services/city-data.service';
 import { TrafficModelService } from '../../services/traffic-model.service';
+import { AiTripWeightServiceService } from '../../services/ai-trip.weight.service.service';
 
 @Component({
   selector: 'app-grid',
@@ -28,7 +29,11 @@ export class GridComponent {
     this.endCityIndex = event.target.value;
  //   alert(selectedValue);
   }
-    constructor(private cityDataService: CityDataService) {
+  adjustedDistances: number[][] = [];
+  weather = 'snow';
+  accidentSeverity = 3;
+  timeOfDay = 'morning';
+    constructor(private aiWeightService: AiTripWeightServiceService, private cityDataService: CityDataService) {
       this.initializeGrid();
     }
     initializeGrid(): void {
@@ -36,23 +41,40 @@ export class GridComponent {
         this.cities = data.cities;
         this.distances = data.distances;
         this.grid =  Array.from(this.distances,row => Array.from(row));
-   
+        this.adjustedDistances = this.aiWeightService.adjustDistances(
+          this.distances,
+          this.weather,
+          this.accidentSeverity,
+          this.timeOfDay,this.cities.map(c => c.name)
+        );
+  
+        this.grid = this.adjustedDistances.map(row => [...row]); 
       });
+      // create grid copy
+
    //   this.grid = Array.from({ length: this.rows }, () => Array(this.cols).fill(1));
       
 
     }
     ngOnInit(): void {
+      const weather = 'clear';
+      const accidentSeverity = 3; // 1-5 scale
+      const timeOfDay = 'morning';
       this.cityDataService.getCityData().subscribe(data => {
         this.cities = data.cities;
         this.distances = data.distances;
       });
-      
+      this.initializeGrid();
     }
     visualizeDijkstra(): void {
       // Implement Dijkstra's algorithm here using this.cities and this.distances
     // Index of the destination city
-
+    const weather = 'clear';
+    const accidentSeverity = 1;
+    const timeOfDay = 'AFTERN';
+  
+  //  const adjustedDistances = this.aiWeightService.adjustDistances(this.distances, weather, accidentSeverity, timeOfDay,this.cities.map(c => c.name));
+ // alert(JSON.stringify(adjustedDistances));
   // Initialize distances and previous nodes
   const distances = Array(this.cities.length).fill(Infinity);
   const previousNodes = Array(this.cities.length).fill(null);
@@ -84,8 +106,7 @@ export class GridComponent {
     // Update distances for neighboring cities
     this.cities.forEach((_, neighborIndex) => {
       if (neighborIndex !== currentCityIndex && unvisitedCities.has(neighborIndex)) {
-        const distance = this.distances[currentCityIndex][neighborIndex];
-        const newDistance = distances[currentCityIndex] + distance;
+        const newDistance = distances[currentCityIndex] ;
 
         if (newDistance < distances[neighborIndex]) {
           distances[neighborIndex] = newDistance;
