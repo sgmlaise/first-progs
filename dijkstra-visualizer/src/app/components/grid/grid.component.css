@@ -2,14 +2,14 @@
 .grid {
   display: grid;
   grid-template-rows: repeat(8, 40px);
-  grid-template-columns: repeat(9, 70px);
+  grid-template-columns: repeat(9, 132px);
   gap: 1px;
 }
 .row {
   display: contents;
 }
 .cell {
-  width: 70px;
+  width: 130px;
   height: 30px;
   background-color: lightgray;
   display: flex;
@@ -41,4 +41,13 @@ start {
   .highlight {
     background-color: yellow;
     font-weight: bold;
+  }
+  .path-cell {
+    background-color: #4caf50; /* green */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .affected-route {
+    border: 2px dashed red;
   }

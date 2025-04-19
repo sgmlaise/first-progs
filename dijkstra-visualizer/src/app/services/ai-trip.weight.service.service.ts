@@ -24,26 +24,6 @@ export class AiTripWeightServiceService {
       (a === cityA && b === cityB) || (a === cityB && b === cityA)
     );
   }
-  adjustDistances(distances: number[][], weather: string, accidentSeverity: number, timeOfDay: string,
-    cityNames: string[]): number[][] {
-      this.cityNames = cityNames;
-
-    const weatherFactor = this.getWeatherMultiplier(weather);
-    const timeFactor = this.getTimeMultiplier(timeOfDay);
-    const accidentFactor = 1 + accidentSeverity * 0.05;
-    return distances.map((row, i) =>
-      row.map((distance, j) => {
-        if (this.isRouteAffected(i, j)) {
-          return +(distance * weatherFactor * timeFactor * accidentFactor).toFixed(2);
-        }
-        return distance;
-      })
-    );
-    /* old return distances.map(row =>
-      row.map(d => d * weatherFactor * accidentFactor * timeFactor)
-    );
-    */
-  }
 
   adjustWeightedDistances(distances: EdgeWeight[][], weather: string, accidentSeverity: number, timeOfDay: string,
     cityNames: string[]): EdgeWeight[][] {

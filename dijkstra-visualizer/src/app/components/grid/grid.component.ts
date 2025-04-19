@@ -38,28 +38,7 @@ export class GridComponent {
   accidentSeverity = 3;
   timeOfDay = 'morning';
     constructor(private aiWeightService: AiTripWeightServiceService, private cityDataService: CityDataService) {
-      this.initializeGrid();
-      this.initializeWeightetGrid();
-    }
-    initializeGrid(): void {
-      this.cityDataService.getCityData().subscribe(data => {
-        this.cities = data.cities;
-        this.distances = data.distances;
-        this.grid =  Array.from(this.distances,row => Array.from(row));
-        this.adjustedDistances = this.aiWeightService.adjustDistances(
-          this.distances,
-          this.weather,
-          this.accidentSeverity,
-          this.timeOfDay,this.cities.map(c => c.name)
-        );
-  
-        this.grid = this.adjustedDistances.map(row => [...row]); 
-      });
-      // create grid copy
-
-   //   this.grid = Array.from({ length: this.rows }, () => Array(this.cols).fill(1));
-      
-
+       this.initializeWeightetGrid();
     }
     initializeWeightetGrid(): void {
       this.cityDataService.getWeighterCityData().subscribe(data => {
@@ -88,13 +67,9 @@ export class GridComponent {
       const timeOfDay = 'morning';
       this.cityDataService.getCityData().subscribe(data => {
         this.cities = data.cities;
-        this.distances = data.distances;
       });
-      this.initializeGrid();
     }
     visualizeDijkstra(): void {
-      // Implement Dijkstra's algorithm here using this.cities and this.distances
-    // Index of the destination city
     const weather = 'clear';
     const accidentSeverity = 1;
     const timeOfDay = 'AFTERN';
@@ -155,60 +130,29 @@ export class GridComponent {
   console.log('Shortest path:', path.join(' -> '));
   console.log('Total distance:', distances[this.endCityIndex]);
     }
-    visualizeDijkstraOld(): void {
-      // Implement Dijkstra's algorithm here
-      // Update the grid to reflect the shortest path
-      const start = [0, 0];
-      const end = [this.rows - 1, this.cols - 1];
-      const visited = Array.from({ length: this.rows }, () => Array(this.cols).fill(false));
-      const distance = Array.from({ length: this.rows }, () => Array(this.cols).fill(Infinity));
-      const previous = Array.from({ length: this.rows }, () => Array(this.cols).fill(null));
     
-      distance[start[0]][start[1]] = 0;
-    
-      const unvisited = [[...start]];while (unvisited.length > 0) {
-        // Find the node with the smallest distance
-        const [currentRow, currentCol] = unvisited.pop()!;
-        if (visited[currentRow][currentCol]) continue;
-    
-        visited[currentRow][currentCol] = true;
-    
-        // Check neighbors
-        const neighbors = [
-          [currentRow - 1, currentCol],
-          [currentRow + 1, currentCol],
-          [currentRow, currentCol - 1],
-          [currentRow, currentCol + 1]
-        ];
-    
-        for (const [neighborRow, neighborCol] of neighbors) {
-          if (
-            neighborRow >= 0 && neighborRow < this.rows &&
-            neighborCol >= 0 && neighborCol < this.cols &&
-            !visited[neighborRow][neighborCol]
-          ) {
-            const alt = distance[currentRow][currentCol] + 1;
-            if (alt < distance[neighborRow][neighborCol]) {
-              distance[neighborRow][neighborCol] = alt;
-              previous[neighborRow][neighborCol] = [currentRow, currentCol];
-              unvisited.push([neighborRow, neighborCol]);
-            }
-          }
-        }
-        }// Reconstruct the shortest path
-      let path = [];
-      let current = end;
-      while (current) {
-        path.unshift(current);
-        current = previous[current[0]][current[1]];
-      }
-
-      // Update the grid to reflect the path
-      for (const [row, col] of path) {
-        this.grid[row][col] = 2;
-      }
-    }
     get ShortestPath():string {
       return JSON.stringify(this.shortestPath)
+    }
+    isEdgeInShortestPath(from: number, to: number): boolean {
+      const path = this.shortestPath;
+      if (!path || path.length < 2) return false;
+    
+      for (let i = 0; i < path.length - 1; i++) {
+        const a = path[i];
+        const b = path[i + 1];
+    
+        const fromName = this.cities[from].name;
+        const toName = this.cities[to].name;
+    
+        if (
+          (fromName === a && toName === b) ||
+          (fromName === b && toName === a)
+        ) {
+          return true;
+        }
+      }
+    
+      return false;
     }
   }
