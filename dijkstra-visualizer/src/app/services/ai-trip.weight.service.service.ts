@@ -34,7 +34,9 @@ export class AiTripWeightServiceService {
     const accidentFactor = 1 + accidentSeverity * 0.05;
     return distances.map((row, i) =>
       row.map((edge, j) => {
-        const isAffected = this.isRouteAffected(i, j);
+
+        const isAffected = weather !== 'clear' || accidentSeverity!== 0 || timeOfDay !== 'morning'? this.isRouteAffected(i, j): false ;
+        console.log(`weather ${weather} accidentseverity ${accidentSeverity} ${timeOfDay}, ${i}, ${j}`)
         const newTimeSpeedFactor = isAffected
         ? Math.round(edge.baseDistance * weatherFactor * timeFactor * accidentFactor * 100) / 100
         : edge.baseDistance;
@@ -55,6 +57,7 @@ export class AiTripWeightServiceService {
   }
   private getWeatherMultiplier(weather: string): number {
     switch (weather.toLowerCase()) {
+      case 'blizzard': return 5;
       case 'snow': return 1.5;
       case 'rain': return 1.2;
       case 'clear': return 1.0;
@@ -64,7 +67,7 @@ export class AiTripWeightServiceService {
 
   private getTimeMultiplier(timeOfDay: string): number {
     switch (timeOfDay.toLowerCase()) {
-      case 'morning': return 1.1;
+      case 'morning': return 1.0;
       case 'evening': return 1.2;
       case 'night': return 0.9;
       default: return 1.0;

@@ -1,18 +1,4 @@
 <h2>City Distance Visualizer</h2>
-<div >
-  
-    <select (change)="getStartId($event)"> 
-        <option *ngFor="let city of cities; let i = index" [value]="city.id" >
-            {{city.name}}
-        </option>
-      </select>
-      <select (change)="getEndId($event)"> 
-        <option *ngFor="let city of cities; let i = index" [value]="city.id" >
-            {{city.name}}
-        </option>
-      </select></div>
-
-  <button (click)="visualizeDijkstra()">Visualize Dijkstra</button>
   <div class="grid">
     <div class="row">
      <div class="cell" >&nbsp;</div>
@@ -33,14 +19,36 @@
        </div>
      </div>
  </div>
-     <select (change)="getStartId($event)"> 
-         <option *ngFor="let city of cities; let i = index" [value]="city.id" >
-             {{city.name}}
-         </option>
-       </select>
-       <select (change)="getEndId($event)"> 
-         <option *ngFor="let city of cities; let i = index" [value]="city.id" >
-             {{city.name}}
-         </option>
-       </select></div>
- {{ShortestPath}}
+ 
+  </div>
+   
+<div >
+  
+  <select (change)="getStartId($event)"> 
+      <option *ngFor="let city of cities; let i = index" [value]="city.id" >
+          {{city.name}}
+      </option>
+    </select>
+    <select (change)="getEndId($event)"> 
+      <option *ngFor="let city of cities; let i = index" [value]="city.id" >
+          {{city.name}}
+      </option>
+    </select>
+  </div>
+
+<button (click)="visualizeDijkstra()">Visualize Dijkstra</button>
+      <div>
+        <h2>Apply different condition sets </h2>
+        <div class="controls">
+          <label for="conditionSet">Select Traffic Condition:</label>
+          <select id="conditionSet"  (change)="applyConditionSet($event)">
+            <option *ngFor="let set of conditionSets; let i = index" [value]="i">{{ set.label }}</option>
+          </select>
+        </div>
+        <ul *ngIf="segmentBreakdown.length > 0">
+          <li *ngFor="let segment of segmentBreakdown; let i = index">
+            <span *ngIf="i === 0"><strong> {{ segment.from }} → {{ segment.to }}: {{ segment.distance }} km</strong></span>
+            <span *ngIf="i > 0">{{ segment.from }} → {{ segment.to }}: {{ segment.distance }} km</span>
+          </li>
+        </ul>
+      </div>
